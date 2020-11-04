@@ -10,7 +10,7 @@ No DMCA GitHub, please. Thanks
 Click [here](https://github.com/snuckdev/gerador-de-dados/releases/latest)
 and read the instructions for running it on your machine.
 
-## 🚀Tecnologias usadas
+## 🚀Tecnologies
 
 - [Electron.js](https://github.com/electron/electron)
 
