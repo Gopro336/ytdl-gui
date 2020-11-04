@@ -13,6 +13,7 @@ function criarJanela() {
   });
 
   window.loadFile(`${__dirname}/index.html`);
+  window.setMenu(null);
 }
 
 app.whenReady().then(criarJanela);
