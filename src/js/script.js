@@ -1,4 +1,3 @@
-const { doc } = require('prettier');
 const youtubedl = require('youtube-dl');
 const fs = require('fs');
 const { ipcRenderer } = require('electron');
