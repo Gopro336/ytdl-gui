@@ -19,7 +19,15 @@ app.whenReady().then(criarJanela);
 
 ipcMain.on('fill_inputs', (event) => {
   dialog.showMessageBoxSync(window, {
+    title: 'fill the inputs',
     message: 'please fill all the inputs',
+  });
+});
+
+ipcMain.on('invalid_url', (event) => {
+  dialog.showMessageBoxSync(window, {
+    title: 'invalid url',
+    message: 'please enter a valid youtube url',
   });
 });
 
