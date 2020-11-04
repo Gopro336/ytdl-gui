@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Youtube-dl GUI</title>
+</head>
+<body class="bg-light">
+    
+    <div class="container mt-1">
+        <div class="py-5 text-center">
+            <h2>yt-dl gui</h2>
+            <p class="lead">Download your 720p videos.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        
+            <div class="row">
+                <div class="col-sm-5">
+                    <input type="text" id="videoUrl" class="form-control" placeholder="video url" required>
+                </div>
+                <div class="col-sm-3">
+                  <select id="videoQuality" class="form-select">
+                    <option value="" selected>Video quality</option>
+                    <option value="160">144p</option>
+                    <option value="133">240p</option>
+                    <option value="134">360p</option>
+                    <option value="135">480p</option>
+                    <option value="22">720p</option>
+                    <option value="best">Best possible</option>
+                </select>
+                </div>
+                <div class="col-sm-4">
+                    <select id="videoFormat" class="form-select">
+                        <option value="">File extension</option>
+                        <option value="mp4">.mp4</option>
+                        <option value="mkv">.mkv</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <input type="text" id="filename" class="form-control mt-4" placeholder="output file name" required>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-primary mt-4 form-control" onclick="downloadVideo()">download video</button>
+                </div>
+            </div>
+            <textarea id="output" class="form-control mt-4" rows="5" readonly></textarea>
+            
+        
+        
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
