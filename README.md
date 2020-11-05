@@ -12,7 +12,6 @@ No DMCA GitHub, please. Thanks
 ## 🌠How it works
 Click [here](https://github.com/ytdl-gui/ytdl-gui/releases/tag/v1.3)
 and read the instructions for running it on your machine.
-The output file is located in the program root directory.
 
 `NOTE: if you clicked in the download button and you don't receive any response, delete the output file and click on it again.`
 
