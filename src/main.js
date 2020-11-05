@@ -14,7 +14,7 @@ if (store.get('disableHardwareAcceleration') === true) {
 
 function criarJanela() {
   window = new BrowserWindow({
-    width: 800,
+    width: 900,
     height: 600,
     icon: './src/assets/icon.ico',
     webPreferences: {
@@ -24,6 +24,7 @@ function criarJanela() {
   });
 
   window.loadFile(`${__dirname}/index.html`);
+  window.removeMenu();
 }
 
 app.whenReady().then(criarJanela);
