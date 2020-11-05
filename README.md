@@ -16,10 +16,6 @@ The output file is located in the program root directory.
 
 `NOTE: if you clicked in the download button and you don't receive any response, delete the output file and click on it again.`
 
-## 🚀Technologies
-
-  - [Electron.js](https://github.com/electron/electron)
-
 ## 📰Images
 
 Main menu     |     Progress bar
