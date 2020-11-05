@@ -19,5 +19,5 @@ The output file is located in the program root directory.
 
 ## 📰Images
 
-![Main menu](https://i.imgur.com/pGDdhRJ.png)
+![Main menu](https://i.imgur.com/aldAuF9.png)
 ## The text area in the bottom is the console output
