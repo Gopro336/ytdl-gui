@@ -10,7 +10,7 @@ This program is a work in progress made by me. It is very simple.
 No DMCA GitHub, please. Thanks
 
 ## 🌠How it works
-Click [here](https://github.com/snuckdev/gerador-de-dados/releases/latest)
+Click [here](https://github.com/ytdl-gui/ytdl-gui/releases/tag/v1.3)
 and read the instructions for running it on your machine.
 The output file is located in the program root directory.
 
