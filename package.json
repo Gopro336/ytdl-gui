@@ -8,7 +8,8 @@
     "dist": "electron-packager . ytdl-gui --all --arch=x64 --icon=./src/assets/icon.ico --out=./dist"
   },
   "dependencies": {
-    "youtube-dl": "^3.0.2"
+    "ffmpeg-static": "^4.2.7",
+    "ytdl-core": "^4.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

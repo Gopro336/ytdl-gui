@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <title>yt-dl gui</title>
 </head>
 <body class="bg-light">
@@ -19,35 +18,21 @@
     <div class="container">
         
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-10">
                     <input type="text" id="videoUrl" class="form-control" placeholder="video url" required>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                   <select id="videoQuality" class="form-select">
                     <option value="" selected>Video quality</option>
-                    <option value="160">144p</option>
-                    <option value="133">240p</option>
-                    <option value="134">360p</option>
-                    <option value="135">480p</option>
-                    <option value="22">720p</option>
-                    <option value="best">Best possible</option>
+                    <option value="highestvideo">Highest</option>
+                    <option value="lowestvideo">Lowest</option>
                 </select>
-                </div>
-                <div class="col-sm-4">
-                    <select id="videoFormat" class="form-select">
-                        <option value="">File extension</option>
-                        <option value="mp4">.mp4</option>
-                        <option value="mkv">.mkv</option>
-                    </select>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-8">
-                    <input type="text" id="filename" class="form-control mt-4" placeholder="output file name" required>
-                </div>
-                <div class="col-sm-4">
-                    <button class="btn btn-primary mt-4 form-control" id="downloadButton" onclick="downloadVideo()">download video</button>
+                <div class="col-sm-12">
+                    <button class="btn btn-primary mt-4 form-control" id="downloadButton" onclick="downloadVideo()">Download</button>
                 </div>
             </div>
             <textarea id="output" class="form-control mt-4" rows="5" readonly></textarea>

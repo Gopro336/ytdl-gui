@@ -13,10 +13,28 @@ function criarJanela() {
   });
 
   window.loadFile(`${__dirname}/index.html`);
-  window.setMenu(null);
 }
 
 app.whenReady().then(criarJanela);
+
+ipcMain.on('open-dialog', (event) => {
+  dialog
+    .showSaveDialog({
+      filters: [
+        {
+          name: 'MP4',
+          extensions: ['mp4'],
+        },
+        {
+          name: 'MKV',
+          extensions: ['mkv'],
+        },
+      ],
+    })
+    .then((promise) => {
+      event.reply('file-path', promise.filePath);
+    });
+});
 
 ipcMain.on('fill_inputs', (event) => {
   dialog.showMessageBoxSync(window, {
