@@ -1,8 +1,23 @@
 const ytdl = require('ytdl-core');
 const fs = require('fs');
+const Store = require('electron-store');
 const { ipcRenderer } = require('electron');
 
+const store = new Store();
+
 const urlRegex = '^(https?://)?(www.)?(youtube.com|youtu.?be)/.+$';
+
+const switchHardware = document.querySelector('input#hardware');
+
+switchHardware.checked = store.get('disableHardwareAcceleration');
+
+switchHardware.addEventListener('change', () => {
+  if (switchHardware.checked) {
+    store.set('disableHardwareAcceleration', true);
+  } else {
+    store.set('disableHardwareAcceleration', false);
+  }
+});
 
 function downloadVideo() {
   const videoUrl = document.querySelector('input#videoUrl').value;

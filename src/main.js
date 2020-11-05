@@ -1,6 +1,16 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron');
+const Store = require('electron-store');
+
+const store = new Store();
 
 let window;
+
+if (!store.has('disableHardwareAcceleration')) {
+  store.set('disableHardwareAcceleration', false);
+}
+if (store.get('disableHardwareAcceleration') === true) {
+  app.disableHardwareAcceleration();
+}
 
 function criarJanela() {
   window = new BrowserWindow({
@@ -9,10 +19,10 @@ function criarJanela() {
     icon: './src/assets/icon.ico',
     webPreferences: {
       nodeIntegration: true,
+      enableRemoteModule: true,
     },
   });
 
-  window.setMenu(null);
   window.loadFile(`${__dirname}/index.html`);
 }
 

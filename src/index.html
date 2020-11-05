@@ -8,40 +8,51 @@
 </head>
 <body class="bg-light">
     
-    <div class="container mt-1">
-        <div class="py-5 text-center">
-            <h2>yt-dl gui</h2>
-            <p class="lead">Download your videos. Anywhere.</p>
-        </div>
+  <div class="row mt-2 ml-2">
+    <div class="col-sm-12">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="hardware">
+        <label class="form-check-label" for="hardware">
+          Disable hardware acceleration (restart)
+        </label>
+      </div>      
     </div>
+  </div>
+  
 
-    <div class="container">
-        
-            <div class="row">
-                <div class="col-sm-10">
-                    <input type="text" id="videoUrl" class="form-control" placeholder="video url" required>
-                </div>
-                <div class="col-sm-2">
-                  <select id="videoQuality" class="form-select">
-                    <option value="" selected>Video quality</option>
-                    <option value="highestvideo">Highest</option>
-                    <option value="lowestvideo">Lowest</option>
-                </select>
-                </div>
-            </div>
+  <div class="container mt-1">
+      <div class="py-5 text-center">
+          <h2>yt-dl gui</h2>
+          <p class="lead">Download your videos. Anywhere.</p>
+      </div>
+  </div>
+  
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <button class="btn btn-primary mt-4 form-control" id="downloadButton" onclick="downloadVideo()">Download</button>
-                </div>
-            </div>
-            <div class="progress col-sm-12 mt-2">
-              <div id="download_progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;"></div>
-            </div>
-            
+  <div class="container">
+      
+          <div class="row">
+              <div class="col-sm-10">
+                  <input type="text" id="videoUrl" class="form-control" placeholder="video url" required>
+              </div>
+              <div class="col-sm-2">
+                <select id="videoQuality" class="form-select">
+                  <option value="" selected>Video quality</option>
+                  <option value="highestvideo">Highest</option>
+                  <option value="lowestvideo">Lowest</option>
+              </select>
+              </div>
+          </div>
+           <div class="row">
+              <div class="col-sm-12">
+                  <button class="btn btn-primary mt-4 form-control" id="downloadButton" onclick="downloadVideo()">Download</button>
+              </div>
+          </div>
+          <div class="progress col-sm-12 mt-2">
+            <div id="download_progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;"></div>
+          </div>        
         
         
-    </div>
+  </div>
     <script src="./js/script.js"></script>
 </body>
 </html>
