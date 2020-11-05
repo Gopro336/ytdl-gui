@@ -3,6 +3,9 @@
 </p>
 
 ## 🔨ytdl-gui
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/65650a48253a47e58e68ad59beaa0eb2)](https://app.codacy.com/gh/ytdl-gui/ytdl-gui?utm_source=github.com&utm_medium=referral&utm_content=ytdl-gui/ytdl-gui&utm_campaign=Badge_Grade)
+
 This program is a work in progress made by me. It is very simple.
 No DMCA GitHub, please. Thanks
 
