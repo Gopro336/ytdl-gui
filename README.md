@@ -14,6 +14,7 @@ Click [here](https://github.com/ytdl-gui/ytdl-gui/releases/latest)
 and read the instructions for running it on your machine.
 With it you can download YouTube videos in highest quality (currently 720p) or lowest quality.
 All you need to do is get the video URL and select the quality, then hit the download button.
+PS: The disable hardware acceleration actually make the window render more faster.
 
 `NOTE: if you clicked in the download button and you don't receive any response, delete the output file and click on it again.`
 
