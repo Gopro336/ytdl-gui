@@ -7,8 +7,9 @@ const urlRegex = '^(https?://)?(www.)?(youtube.com|youtu.?be)/.+$';
 function downloadVideo() {
   const videoUrl = document.querySelector('input#videoUrl').value;
   const videoQuality = document.querySelector('select#videoQuality').value;
-  const outputConsoleArea = document.querySelector('textarea#output');
   const downloadButton = document.querySelector('button#downloadButton');
+  const progressBar = document.querySelector('div#download_progress');
+  let startTime;
 
   if (videoUrl !== '' && videoQuality !== '') {
     const regex = new RegExp(urlRegex);
@@ -26,17 +27,29 @@ function downloadVideo() {
 
         video.pipe(fs.createWriteStream(path));
 
+        video.once('response', () => {
+          startTime = Date.now();
+        });
+
         video.on('progress', (chunkLength, downloaded, total) => {
           const percentage = downloaded / total;
+          const formattedPercentage = Math.floor(percentage * 100);
+          const downloadedMinutes = (Date.now() - startTime) / 1000 / 60;
+          const eta = downloadedMinutes / percentage - downloadedMinutes;
 
-          outputConsoleArea.value = `${Math.floor(
-            percentage * 100,
-          )}% downloaded`;
+          progressBar.style.width = 0;
+          progressBar.style.width = `${formattedPercentage}%`;
+          progressBar.innerText = `${formattedPercentage}%`;
+          document.title = `ytdl-gui ETA: ${eta.toFixed(2)}m`;
         });
 
         video.on('end', () => {
+          progressBar.style.width = 0;
+          progressBar.innerText = '';
           downloadButton.disabled = false;
-          outputConsoleArea.value = '';
+
+          ipcRenderer.send('download-complete');
+          document.title = 'ytdl-gui';
         });
       });
     } else {

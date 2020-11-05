@@ -12,11 +12,18 @@ function criarJanela() {
     },
   });
 
-  window.loadFile(`${__dirname}/index.html`);
   window.setMenu(null);
+  window.loadFile(`${__dirname}/index.html`);
 }
 
 app.whenReady().then(criarJanela);
+
+ipcMain.on('download-complete', (event) => {
+  dialog.showMessageBox(window, {
+    title: 'Download completed',
+    message: 'Video downloaded with success',
+  });
+});
 
 ipcMain.on('open-dialog', (event) => {
   dialog
@@ -39,15 +46,15 @@ ipcMain.on('open-dialog', (event) => {
 
 ipcMain.on('fill_inputs', (event) => {
   dialog.showMessageBoxSync(window, {
-    title: 'fill the inputs',
-    message: 'please fill all the inputs',
+    title: 'Empty inputs',
+    message: 'Please fill all the inputs',
   });
 });
 
 ipcMain.on('invalid_url', (event) => {
   dialog.showMessageBoxSync(window, {
-    title: 'invalid url',
-    message: 'please enter a valid youtube url',
+    title: 'Invalid URL',
+    message: 'Type a valid YouTube URL',
   });
 });
 
