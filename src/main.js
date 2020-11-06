@@ -41,12 +41,20 @@ ipcMain.on('open-dialog', (event) => {
     .showSaveDialog({
       filters: [
         {
-          name: 'MP4',
+          name: 'MPEG-4',
           extensions: ['mp4'],
         },
         {
-          name: 'MKV',
+          name: 'Matroska',
           extensions: ['mkv'],
+        },
+        {
+          name: 'Flash Video',
+          extensions: ['flv'],
+        },
+        {
+          name: 'AVI',
+          extensions: ['avi'],
         },
       ],
     })

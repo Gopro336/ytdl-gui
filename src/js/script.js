@@ -54,8 +54,9 @@ function downloadVideo() {
 
           progressBar.style.width = 0;
           progressBar.style.width = `${formattedPercentage}%`;
-          progressBar.innerText = `${formattedPercentage}%`;
-          document.title = `ytdl-gui ETA: ${eta.toFixed(2)}m`;
+          progressBar.innerText = `${formattedPercentage}% (ETA: ${eta.toFixed(
+            2,
+          )}m)`;
         });
 
         video.on('end', () => {
@@ -64,7 +65,6 @@ function downloadVideo() {
           downloadButton.disabled = false;
 
           ipcRenderer.send('download-complete');
-          document.title = 'ytdl-gui';
         });
       });
     } else {
