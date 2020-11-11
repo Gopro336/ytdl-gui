@@ -7,7 +7,9 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/65650a48253a47e58e68ad59beaa0eb2)](https://app.codacy.com/gh/ytdl-gui/ytdl-gui?utm_source=github.com&utm_medium=referral&utm_content=ytdl-gui/ytdl-gui&utm_campaign=Badge_Grade)
 
 This program is a work in progress made by me. It is very simple.
-No DMCA GitHub, please. Thanks
+No DMCA GitHub, please. Thanks.
+
+`NOTE:` 1.6 has a notification bug, I don't know how to fix it yet, so download 1.5.
 
 ## 🌠How it works
 Click [here](https://github.com/ytdl-gui/ytdl-gui/releases/latest)
