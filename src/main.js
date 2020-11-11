@@ -1,4 +1,10 @@
-const { app, BrowserWindow, dialog, ipcMain } = require('electron');
+const {
+  app,
+  BrowserWindow,
+  Notification,
+  dialog,
+  ipcMain,
+} = require('electron');
 const Store = require('electron-store');
 
 const store = new Store();
@@ -29,11 +35,14 @@ function criarJanela() {
 
 app.whenReady().then(criarJanela);
 
-ipcMain.on('download-complete', (event) => {
-  dialog.showMessageBox(window, {
-    title: 'Download completed',
-    message: 'Video downloaded with success',
-  });
+ipcMain.on('download-complete', (event, fileName) => {
+  const notification = {
+    title: 'Download completed.',
+    body: `File name: ${fileName}`,
+    icon: './src/assets/icon.ico',
+  };
+
+  new Notification(notification).show();
 });
 
 ipcMain.on('open-dialog', (event) => {
@@ -63,14 +72,14 @@ ipcMain.on('open-dialog', (event) => {
     });
 });
 
-ipcMain.on('fill_inputs', (event) => {
+ipcMain.on('fill-inputs', (event) => {
   dialog.showMessageBoxSync(window, {
     title: 'Empty inputs',
     message: 'Please fill all the inputs',
   });
 });
 
-ipcMain.on('invalid_url', (event) => {
+ipcMain.on('invalid-url', (event) => {
   dialog.showMessageBoxSync(window, {
     title: 'Invalid URL',
     message: 'Type a valid YouTube URL',

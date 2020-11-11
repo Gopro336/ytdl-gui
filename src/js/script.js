@@ -64,13 +64,13 @@ function downloadVideo() {
           progressBar.innerText = '';
           downloadButton.disabled = false;
 
-          ipcRenderer.send('download-complete');
+          ipcRenderer.send('download-complete', path);
         });
       });
     } else {
-      ipcRenderer.send('invalid_url');
+      ipcRenderer.send('invalid-url');
     }
   } else {
-    ipcRenderer.send('fill_inputs');
+    ipcRenderer.send('fill-inputs');
   }
 }
