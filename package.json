@@ -8,9 +8,11 @@
     "dist": "electron-packager . ytdl-gui --all --arch=x64 --icon=./src/assets/icon.ico --out=./dist --asar"
   },
   "dependencies": {
-    "confusing-browser-globals": "1.0.10",
+    "confusing-browser-globals": "1.0.9",
     "electron-store": "^6.0.1",
-    "object.assign": "4.1.2",
+    "has-symbols": "1.0.0",
+    "object-keys": "1.0.11",
+    "object.assign": "4.1.1",
     "ytdl-core": "^4.0.5"
   },
   "devDependencies": {
