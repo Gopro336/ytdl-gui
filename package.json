@@ -10,7 +10,7 @@
   "dependencies": {
     "confusing-browser-globals": "1.0.9",
     "electron-store": "^6.0.1",
-    "object.assign": "4.1.0",
+    "object.assign": "4.1.2",
     "ytdl-core": "^4.0.5"
   },
   "devDependencies": {
