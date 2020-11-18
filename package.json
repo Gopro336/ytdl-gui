@@ -5,21 +5,17 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-packager . ytdl-gui --all --arch=x64 --icon=./src/assets/icon.ico --out=./dist --asar",
-    "commit": "git-cz"
+    "dist": "electron-packager . ytdl-gui --all --arch=x64 --icon=./src/assets/icon.ico --out=./dist --asar"
   },
   "dependencies": {
-    "confusing-browser-globals": "1.0.9",
     "electron-store": "^6.0.1",
-    "has-symbols": "1.0.0",
-    "object-keys": "1.0.11",
-    "object.assign": "4.1.0",
     "v8-compile-cache": "^2.2.0",
     "ytdl-core": "4.0.3"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "devDependencies": {
