@@ -19,18 +19,18 @@ switchHardware.addEventListener('change', () => {
   }
 });
 
+// TODO change the "two downloads at the same time" "fix".
+
 function downloadVideo() {
-  const videoUrl = document.querySelector('input#videoUrl').value;
-  const videoQuality = document.querySelector('select#videoQuality').value;
-  const downloadButton = document.querySelector('button#downloadButton');
+  const videoUrl = document.getElementById('videoUrl').value;
+  const videoQuality = document.getElementById('videoQuality').value;
+  const downloadButton = document.getElementById('downloadButton');
   const progressBar = document.querySelector('div#download_progress');
   let startTime;
 
   if (videoUrl !== '' && videoQuality !== '') {
-    const regex = new RegExp(urlRegex);
-
-    if (videoUrl.match(regex)) {
-      ipcRenderer.send('open-dialog', 'true');
+    if (ytdl.validateURL(videoUrl)) {
+      ipcRenderer.send('open-dialog');
 
       ipcRenderer.on('file-path', (event, path) => {
         downloadButton.disabled = true;
@@ -44,6 +44,7 @@ function downloadVideo() {
 
         video.once('response', () => {
           startTime = Date.now();
+          console.log(video);
         });
 
         video.on('progress', (chunkLength, downloaded, total) => {

@@ -6,6 +6,7 @@ const {
   ipcMain,
 } = require('electron');
 const Store = require('electron-store');
+require('v8-compile-cache');
 
 const store = new Store();
 
@@ -36,13 +37,14 @@ function criarJanela() {
 app.whenReady().then(criarJanela);
 
 ipcMain.on('download-complete', (event, fileName) => {
-  const notification = {
-    title: 'Download completed.',
-    body: `File name: ${fileName}`,
-    icon: './src/assets/icon.ico',
-  };
-
-  new Notification(notification).show();
+  dialog
+    .showMessageBox(window, {
+      title: 'Download completed',
+      message: 'Download success.',
+    })
+    .then(() => {
+      window.reload();
+    });
 });
 
 ipcMain.on('open-dialog', (event) => {
