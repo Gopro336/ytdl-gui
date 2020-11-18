@@ -1,11 +1,12 @@
 {
   "name": "yt-dl-gui-electron",
-  "version": "1.5.0",
+  "version": "1.7.0",
   "main": "src/main.js",
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-packager . ytdl-gui --all --arch=x64 --icon=./src/assets/icon.ico --out=./dist --asar"
+    "dist": "electron-packager . ytdl-gui --all --arch=x64 --icon=./src/assets/icon.ico --out=./dist --asar",
+    "commit": "cz"
   },
   "dependencies": {
     "electron-store": "^6.0.1",
@@ -14,8 +15,7 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "devDependencies": {
