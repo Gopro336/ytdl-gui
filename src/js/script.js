@@ -25,7 +25,7 @@ function downloadVideo() {
   const videoUrl = document.getElementById('videoUrl').value;
   const videoQuality = document.getElementById('videoQuality').value;
   const downloadButton = document.getElementById('downloadButton');
-  const progressBar = document.querySelector('div#download_progress');
+  const progressBar = document.getElementById('download_progress');
   let startTime;
 
   if (videoUrl !== '' && videoQuality !== '') {
