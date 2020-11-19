@@ -6,6 +6,7 @@ const { ipcRenderer } = require('electron');
 const store = new Store();
 
 const switchHardware = document.getElementById('hardware');
+const downloadButton = document.getElementById('downloadButton');
 
 switchHardware.checked = store.get('disableHardwareAcceleration');
 
@@ -22,7 +23,6 @@ switchHardware.addEventListener('change', () => {
 function downloadVideo() {
   const videoUrl = document.getElementById('videoUrl').value;
   const videoQuality = document.getElementById('videoQuality').value;
-  const downloadButton = document.getElementById('downloadButton');
   const progressBar = document.getElementById('download_progress');
   let startTime;
 
@@ -72,3 +72,7 @@ function downloadVideo() {
     ipcRenderer.send('fill-inputs');
   }
 }
+
+downloadButton.addEventListener('click', () => {
+  downloadVideo();
+});

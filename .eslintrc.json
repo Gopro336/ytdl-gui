@@ -18,8 +18,6 @@
     ],
     "rules": {
         "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-        "no-unused-vars": "off",
-        "no-underscore-dangle": "off",
         "prettier/prettier": "error"
     }
 }
