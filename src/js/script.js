@@ -5,8 +5,6 @@ const { ipcRenderer } = require('electron');
 
 const store = new Store();
 
-const urlRegex = '^(https?://)?(www.)?(youtube.com|youtu.?be)/.+$';
-
 const switchHardware = document.querySelector('input#hardware');
 
 switchHardware.checked = store.get('disableHardwareAcceleration');
