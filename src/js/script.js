@@ -5,7 +5,7 @@ const { ipcRenderer } = require('electron');
 
 const store = new Store();
 
-const switchHardware = document.querySelector('input#hardware');
+const switchHardware = document.getElementById('hardware');
 
 switchHardware.checked = store.get('disableHardwareAcceleration');
 
