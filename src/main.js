@@ -13,7 +13,7 @@ if (store.get('disableHardwareAcceleration') === true) {
   app.disableHardwareAcceleration();
 }
 
-function criarJanela() {
+function createWindow() {
   window = new BrowserWindow({
     width: 900,
     height: 600,
@@ -28,7 +28,7 @@ function criarJanela() {
   window.removeMenu();
 }
 
-app.whenReady().then(criarJanela);
+app.whenReady().then(createWindow);
 
 ipcMain.on('download-complete', () => {
   dialog
@@ -87,5 +87,5 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) criarJanela();
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
