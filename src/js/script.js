@@ -44,7 +44,6 @@ function downloadVideo() {
 
         video.once('response', () => {
           startTime = Date.now();
-          console.log(video);
         });
 
         video.on('progress', (chunkLength, downloaded, total) => {
@@ -65,7 +64,7 @@ function downloadVideo() {
           progressBar.innerText = '';
           downloadButton.disabled = false;
 
-          ipcRenderer.send('download-complete', path);
+          ipcRenderer.send('download-complete');
         });
       });
     } else {

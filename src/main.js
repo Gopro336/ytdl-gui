@@ -36,7 +36,7 @@ function criarJanela() {
 
 app.whenReady().then(criarJanela);
 
-ipcMain.on('download-complete', (event, fileName) => {
+ipcMain.on('download-complete', (event) => {
   dialog
     .showMessageBox(window, {
       title: 'Download completed',
