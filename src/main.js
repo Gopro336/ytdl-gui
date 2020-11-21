@@ -41,6 +41,13 @@ ipcMain.on('download-complete', () => {
     });
 });
 
+ipcMain.on('video-error', () => {
+  dialog.showMessageBox(window, {
+    title: 'Download error',
+    message: 'an error occurred while trying to download the video.',
+  });
+});
+
 ipcMain.on('open-dialog', (event) => {
   dialog
     .showSaveDialog({
