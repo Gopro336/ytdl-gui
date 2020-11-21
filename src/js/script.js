@@ -18,8 +18,6 @@ switchHardware.addEventListener('change', () => {
   }
 });
 
-// TODO change the "two downloads at the same time" "fix".
-
 function downloadVideo() {
   const videoUrl = document.getElementById('videoUrl').value;
   const videoQuality = document.getElementById('videoQuality').value;
