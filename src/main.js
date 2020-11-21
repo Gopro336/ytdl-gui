@@ -70,8 +70,8 @@ ipcMain.on('open-dialog', (event) => {
         },
       ],
     })
-    .then((promise) => {
-      event.reply('file-path', promise.filePath);
+    .then((dialogInfo) => {
+      event.reply('file-path', dialogInfo.filePath);
     });
 });
 
