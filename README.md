@@ -20,7 +20,7 @@ PS: The disable hardware acceleration actually make the window render more faste
 
 Main menu     |     Progress bar
 :------------:|:---------------:
-![Main menu](https://i.imgur.com/DqzsCVU.png) | ![Progress bar](https://i.imgur.com/3P1BzfZ.png)
+![Main menu](https://i.imgur.com/ZAF38Om.png) | ![Progress bar](https://i.imgur.com/Gt14UO4.png)
 
 ## 📷Example video
-[![example video](https://res.cloudinary.com/marcomontalbano/image/upload/v1604595805/video_to_markdown/images/streamable--ccnfdv-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://streamable.com/ccnfdv "example video")
+[![ytdl-gui example](https://res.cloudinary.com/marcomontalbano/image/upload/v1606142178/video_to_markdown/images/streamable--iu6h2u-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://streamable.com/iu6h2u "ytdl-gui example")
