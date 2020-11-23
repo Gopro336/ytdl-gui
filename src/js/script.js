@@ -21,7 +21,7 @@ switchHardware.addEventListener('change', () => {
 function downloadVideo() {
   const videoUrl = document.getElementById('videoUrl').value;
   const videoQuality = document.getElementById('videoQuality').value;
-  const progressBar = document.getElementById('download_progress');
+  const progressBar = document.getElementById('downloadProgress');
   let startTime;
 
   if (videoUrl !== '' && videoQuality !== '') {
@@ -48,8 +48,8 @@ function downloadVideo() {
           const downloadedMinutes = (Date.now() - startTime) / 1000 / 60;
           const eta = downloadedMinutes / percentage - downloadedMinutes;
 
-          progressBar.style.width = 0;
-          progressBar.style.width = `${formattedPercentage}%`;
+          progressBar.value = 0;
+          progressBar.value = formattedPercentage;
           progressBar.innerText = `${formattedPercentage}% (ETA: ${eta.toFixed(
             2,
           )}m)`;

@@ -1,59 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+<html lang="en" class="has-background-light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>yt-dl gui</title>
-</head>
-<body class="bg-light">
-    
-
-  <div class="container mt-1">
-      <div class="py-5 text-center">
-          <h2>yt-dl gui</h2>
-          <p class="lead">Download your videos. Anywhere.</p>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container has-text-centered">
+        <h1 class="title is-3">yt-dl gui</h1>
+        <p class="subtitle is-small">Download your videos. Anywhere.</p>
       </div>
-  </div>
-  <div class="container mb-1">
-    <div class="row">
-      <div class="col-sm">
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" id="hardware">
-          <label class="form-check-label" for="hardware">
-            Disable hardware acceleration (restart)
-          </label>
-        </div> 
-      </div>
-    </div>
-  </div>
-  
+    </section>
 
-  <div class="container">
-      
-          <div class="row">
-              <div class="col-sm-10">
-                  <input type="text" id="videoUrl" class="form-control" placeholder="video url" required>
-              </div>
-              <div class="col-sm-2">
-                <select id="videoQuality" class="form-select">
-                  <option value="" selected>Video quality</option>
-                  <option value="highestvideo">Highest</option>
-                  <option value="lowestvideo">Lowest</option>
-              </select>
-              </div>
+    <section class="section">
+      <div class="mb-1">
+        <label class="checkbox">
+          <input type="checkbox" id="hardware" />
+          Disable hardware acceleration (restart)
+        </label>
+      </div>
+      <div class="field is-grouped">
+        <div class="control is-expanded">
+          <input
+            type="text"
+            id="videoUrl"
+            class="input"
+            placeholder="Video URL"
+          />
+        </div>
+        <div class="control">
+          <div class="select">
+            <select id="videoQuality">
+              <option value="">Select video quality</option>
+              <option value="highest">Highest</option>
+              <option value="lowest">Lowest</option>
+            </select>
           </div>
-           <div class="row">
-              <div class="col-sm-12">
-                  <button class="btn btn-primary mt-4 form-control" id="downloadButton">Download</button>
-              </div>
-          </div>
-          <div class="progress col-sm-12 mt-2">
-            <div id="download_progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;"></div>
-          </div>        
-        
-        
-  </div>
+        </div>
+      </div>
+      <button class="button is-fullwidth is-primary" id="downloadButton">
+        Download
+      </button>
+      <progress
+        class="progress is-primary mt-1"
+        value="0"
+        max="100"
+        id="downloadProgress"
+      ></progress>
+    </section>
     <script src="./js/script.js"></script>
-</body>
+  </body>
 </html>
