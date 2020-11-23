@@ -18,6 +18,7 @@ function createWindow() {
     width: 900,
     height: 600,
     icon: './src/assets/icon.ico',
+    show: false,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
@@ -27,6 +28,10 @@ function createWindow() {
 
   window.loadFile(`${__dirname}/index.html`);
   window.removeMenu();
+
+  window.once('ready-to-show', () => {
+    window.show();
+  });
 }
 
 app.whenReady().then(createWindow);
