@@ -33,7 +33,7 @@ function downloadVideo() {
 
         const video = ytdl(videoUrl, {
           filter: 'audioandvideo',
-          quality: videoQuality,
+          quality: 'highestvideo',
         });
 
         video.pipe(fs.createWriteStream(path));
