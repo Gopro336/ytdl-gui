@@ -27,7 +27,7 @@ function createWindow() {
   });
 
   window.loadFile(`${__dirname}/index.html`);
-  // window.removeMenu();
+  window.removeMenu();
 
   window.once('ready-to-show', () => {
     window.show();
