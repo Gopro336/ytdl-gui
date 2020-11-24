@@ -22,14 +22,14 @@ switchHardware.addEventListener('change', () => {
 function downloadVideo() {
   const videoQuality = document.getElementById('videoQuality');
   const progressBar = document.getElementById('downloadProgress');
-  let startTime;
 
-  if (videoUrl.value !== '' && videoQuality !== '') {
+  if (videoUrl.value !== '' && videoQuality.value !== '') {
     if (ytdl.validateURL(videoUrl.value)) {
       ipcRenderer.send('open-dialog');
 
       ipcRenderer.on('file-path', (event, path) => {
         if (path === '') {
+          ipcRenderer.send('invalid-path');
           return;
         }
         downloadButton.disabled = true;
@@ -43,28 +43,15 @@ function downloadVideo() {
 
         video.pipe(fs.createWriteStream(path));
 
-        video.once('response', () => {
-          startTime = Date.now();
-        });
-
         video.on('progress', (chunkLength, downloaded, total) => {
           const percentage = downloaded / total;
           const formattedPercentage = Math.floor(percentage * 100);
-          const downloadedMinutes = (Date.now() - startTime) / 1000 / 60;
-          const eta = downloadedMinutes / percentage - downloadedMinutes;
 
           progressBar.value = 0;
           progressBar.value = formattedPercentage;
-          progressBar.innerText = `${formattedPercentage}% (ETA: ${eta.toFixed(
-            2,
-          )}m)`;
         });
 
         video.on('end', () => {
-          progressBar.style.width = 0;
-          progressBar.innerText = '';
-          downloadButton.disabled = false;
-
           ipcRenderer.send('download-complete');
         });
 

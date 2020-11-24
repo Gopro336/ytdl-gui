@@ -27,7 +27,7 @@ function createWindow() {
   });
 
   window.loadFile(`${__dirname}/index.html`);
-  window.removeMenu();
+  // window.removeMenu();
 
   window.once('ready-to-show', () => {
     window.show();
@@ -35,6 +35,10 @@ function createWindow() {
 }
 
 app.whenReady().then(createWindow);
+
+ipcMain.on('invalid-path', () => {
+  window.reload();
+});
 
 ipcMain.on('download-complete', () => {
   dialog
