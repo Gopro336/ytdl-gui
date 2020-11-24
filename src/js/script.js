@@ -29,6 +29,9 @@ function downloadVideo() {
       ipcRenderer.send('open-dialog');
 
       ipcRenderer.on('file-path', (event, path) => {
+        if (path === '') {
+          return;
+        }
         downloadButton.disabled = true;
         videoUrl.disabled = true;
         videoQuality.disabled = true;
