@@ -56,8 +56,7 @@ function downloadVideo() {
         });
 
         video.on('error', () => {
-          progressBar.style.width = 0;
-          progressBar.innerText = '';
+          progressBar.value = 0;
           downloadButton.disabled = false;
 
           ipcRenderer.send('video-error');

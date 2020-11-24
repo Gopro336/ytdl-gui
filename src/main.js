@@ -43,8 +43,8 @@ ipcMain.on('invalid-path', () => {
 ipcMain.on('download-complete', () => {
   dialog
     .showMessageBox(window, {
-      title: 'Download completed',
-      message: 'Download success.',
+      title: 'Download complete',
+      message: 'Video downloaded successfully.',
     })
     .then(() => {
       window.reload();
@@ -54,7 +54,7 @@ ipcMain.on('download-complete', () => {
 ipcMain.on('video-error', () => {
   dialog.showMessageBox(window, {
     title: 'Download error',
-    message: 'an error occurred while trying to download the video.',
+    message: 'An error occurred while trying to download the video.',
   });
 });
 
@@ -88,14 +88,14 @@ ipcMain.on('open-dialog', (event) => {
 ipcMain.on('fill-inputs', () => {
   dialog.showMessageBoxSync(window, {
     title: 'Empty inputs',
-    message: 'Please fill all the inputs',
+    message: 'Please fill in all fields.',
   });
 });
 
 ipcMain.on('invalid-url', () => {
   dialog.showMessageBoxSync(window, {
     title: 'Invalid URL',
-    message: 'Type a valid YouTube URL',
+    message: 'Type a valid YouTube URL.',
   });
 });
 
