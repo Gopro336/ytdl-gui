@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-packager . ytdl-gui --all --asar --out=\"./dist\"",
+    "dist": "electron-packager . ytdl-gui --all --asar --out=\"./dist\" --icon=\"./src/assets/icon.ico\"",
     "commit": "cz"
   },
   "dependencies": {
