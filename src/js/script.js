@@ -8,6 +8,7 @@ const store = new Store();
 const switchHardware = document.getElementById('hardware');
 const downloadButton = document.getElementById('downloadButton');
 const videoUrl = document.getElementById('videoUrl');
+const videoQuality = document.getElementById('videoQuality');
 
 switchHardware.checked = store.get('disableHardwareAcceleration');
 
@@ -20,21 +21,19 @@ switchHardware.addEventListener('change', () => {
 });
 
 function downloadVideo() {
-  const videoQuality = document.getElementById('videoQuality');
   const progressBar = document.getElementById('downloadProgress');
 
   if (videoUrl.value !== '' && videoQuality.value !== '') {
     if (ytdl.validateURL(videoUrl.value)) {
-      ipcRenderer.send('open-dialog');
+      ytdl.getInfo(videoUrl.value).then((info) => {
+        ipcRenderer.send('open-dialog', info.videoDetails.title);
+      });
 
       ipcRenderer.on('file-path', (event, path) => {
         if (path === '') {
           ipcRenderer.send('invalid-path');
           return;
         }
-        downloadButton.disabled = true;
-        videoUrl.disabled = true;
-        videoQuality.disabled = true;
 
         const video = ytdl(videoUrl.value, {
           filter: 'audioandvideo',
@@ -71,6 +70,10 @@ function downloadVideo() {
 }
 
 downloadButton.addEventListener('click', () => {
+  downloadButton.disabled = true;
+  downloadButton.innerText = 'Please wait...';
+  videoUrl.disabled = true;
+  videoQuality.disabled = true;
   downloadVideo();
 });
 

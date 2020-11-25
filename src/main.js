@@ -58,9 +58,10 @@ ipcMain.on('video-error', () => {
   });
 });
 
-ipcMain.on('open-dialog', (event) => {
+ipcMain.on('open-dialog', (event, videoTitle) => {
   dialog
     .showSaveDialog({
+      defaultPath: videoTitle.replace(/[<>:"/|?*]/g, ''),
       filters: [
         {
           name: 'MPEG-4',
