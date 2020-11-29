@@ -87,17 +87,25 @@ ipcMain.on('open-dialog', (event, videoTitle) => {
 });
 
 ipcMain.on('fill-inputs', () => {
-  dialog.showMessageBoxSync(window, {
-    title: 'Empty inputs',
-    message: 'Please fill in all fields.',
-  });
+  dialog
+    .showMessageBox(window, {
+      title: 'Empty inputs',
+      message: 'Please fill in all fields.',
+    })
+    .then(() => {
+      window.reload();
+    });
 });
 
 ipcMain.on('invalid-url', () => {
-  dialog.showMessageBoxSync(window, {
-    title: 'Invalid URL',
-    message: 'Type a valid YouTube URL.',
-  });
+  dialog
+    .showMessageBox(window, {
+      title: 'Invalid URL',
+      message: 'Type a valid YouTube URL.',
+    })
+    .then(() => {
+      window.reload();
+    });
 });
 
 app.on('window-all-closed', () => {
