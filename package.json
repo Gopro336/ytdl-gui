@@ -1,6 +1,6 @@
 {
   "name": "yt-dl-gui-electron",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "src/main.js",
   "license": "MIT",
   "scripts": {
