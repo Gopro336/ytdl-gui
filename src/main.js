@@ -41,14 +41,10 @@ ipcMain.on('invalid-path', () => {
 });
 
 ipcMain.on('download-complete', () => {
-  dialog
-    .showMessageBox(window, {
-      title: 'Download complete',
-      message: 'Video downloaded successfully.',
-    })
-    .then(() => {
-      window.reload();
-    });
+  dialog.showMessageBox(window, {
+    title: 'Download complete',
+    message: 'Video downloaded successfully.',
+  });
 });
 
 ipcMain.on('video-error', () => {
@@ -87,25 +83,17 @@ ipcMain.on('open-dialog', (event, videoTitle) => {
 });
 
 ipcMain.on('fill-inputs', () => {
-  dialog
-    .showMessageBox(window, {
-      title: 'Empty inputs',
-      message: 'Please fill in all fields.',
-    })
-    .then(() => {
-      window.reload();
-    });
+  dialog.showMessageBox(window, {
+    title: 'Empty inputs',
+    message: 'Please fill in all fields.',
+  });
 });
 
 ipcMain.on('invalid-url', () => {
-  dialog
-    .showMessageBox(window, {
-      title: 'Invalid URL',
-      message: 'Type a valid YouTube URL.',
-    })
-    .then(() => {
-      window.reload();
-    });
+  dialog.showMessageBox(window, {
+    title: 'Invalid URL',
+    message: 'Type a valid YouTube URL.',
+  });
 });
 
 app.on('window-all-closed', () => {

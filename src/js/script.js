@@ -26,6 +26,11 @@ function downloadVideo() {
   if (videoUrl.value !== '' && videoQuality.value !== '') {
     if (ytdl.validateURL(videoUrl.value)) {
       ytdl.getInfo(videoUrl.value).then((info) => {
+        downloadButton.disabled = true;
+        downloadButton.innerText = 'Please wait...';
+        videoUrl.disabled = true;
+        videoQuality.disabled = true;
+
         ipcRenderer.send('open-dialog', info.videoDetails.title);
       });
 
@@ -51,6 +56,13 @@ function downloadVideo() {
         });
 
         video.on('end', () => {
+          progressBar.value = 0;
+
+          downloadButton.disabled = false;
+          downloadButton.innerText = 'Download';
+          videoUrl.disabled = false;
+          videoQuality.disabled = false;
+
           ipcRenderer.send('download-complete');
         });
 
@@ -70,10 +82,6 @@ function downloadVideo() {
 }
 
 downloadButton.addEventListener('click', () => {
-  downloadButton.disabled = true;
-  downloadButton.innerText = 'Please wait...';
-  videoUrl.disabled = true;
-  videoQuality.disabled = true;
   downloadVideo();
 });
 
